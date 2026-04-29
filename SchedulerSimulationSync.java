@@ -75,11 +75,11 @@ class SharedResources {
     
     // Method to log execution
     public static void logExecution(String message) {
-        lock.lock(); // task 1
+         lock.lock(); // task 2
         try {
             executionLog.add(message);
         } finally {
-            lock.unlock(); // task 1
+            lock.unlock(); // task 2
         }
     }
 }
