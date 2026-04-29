@@ -1,7 +1,7 @@
 # Assignment 3 - Complete Documentation
 
-**Student Name**: [Your Full Name]  
-**Student ID**: [Your ID]  
+**Student Name**: [Mohammed Baleigh Alwasy]  
+**Student ID**: [445052803]  
 **Date Submitted**: [Submission Date]
 
 ---
@@ -31,16 +31,21 @@
 
 Document your development process with **minimum 3 entries** showing progression:
 
-### Entry 1 - [Date, Time]
+### Entry 1 - [April 29, 2026, 08:00 PM]
 **What I implemented**: 
+I added a ReentrantLock to the SharedResources class to protect the shared variables (contextSwitchCount, completedProcessCount, totalWaitingTime, and the executionLog list). This ensures mutual exclusion and prevents race conditions when multiple process threads try to update these variables at the same time.
 
 **Challenges encountered**: 
+The main challenge was ensuring that the lock is always released properly. If a thread acquires the lock but an exception occurs before it releases it, it could cause a deadlock, freezing the entire simulation. Another realization was that ArrayList is not thread-safe and also needed protection.
 
 **How I solved it**: 
+I declared a single shared lock: public static final ReentrantLock lock = new ReentrantLock();. For every method modifying shared data, I used lock.lock() at the start of the critical section and placed lock.unlock() strictly inside a finally block. This guarantees the lock is released no matter what happens.
 
 **Testing approach**: 
+I ran the SchedulerSimulationSync program multiple times. I monitored the console output to ensure the simulation finishes completely without freezing (verifying no deadlocks exist) and checked the final "Synchronization Statistics" to confirm the numbers are accurate and consistent (verifying no lost updates).
 
 **Time spent**: 
+45 minutes.
 
 ---
 
