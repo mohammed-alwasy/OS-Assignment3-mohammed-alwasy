@@ -49,16 +49,21 @@ I ran the SchedulerSimulationSync program multiple times. I monitored the consol
 
 ---
 
-### Entry 2 - [Date, Time]
+### Entry 2 - [April 30, 2026, 10:10 AM]
 **What I implemented**: 
+I added a binary Semaphore with 1 permit to control concurrent CPU access. This simulates a single-core processor environment by ensuring that only one process (thread) can execute its critical section (the CPU burst) at any given time, preventing processes from overlapping during execution.
 
 **Challenges encountered**: 
+The main challenge was handling the InterruptedException that the acquire() method throws. I also needed to be absolutely sure that once a process acquires the CPU permit, it doesn't hold onto it forever if something goes wrong, which would starve all other waiting processes.
 
 **How I solved it**: 
+I declared a binary semaphore in the SharedResources class: public static final Semaphore cpuSemaphore = new Semaphore(1);. In the Process thread's run() method, I wrapped the cpuSemaphore.acquire() call in a dedicated try-catch block at the very beginning. To ensure the permit is always returned safely, I placed the cpuSemaphore.release() call inside the pre-existing finally block at the end of the execution flow.
 
 **Testing approach**: 
+I executed the simulation and carefully monitored the console output. I verified that the process execution logs appeared sequentially without any overlapping "is executing" messages. I also checked that all created processes eventually got their turn and finished successfully, confirming that no deadlocks or starvation occurred.
 
-**Time spent**: 
+**Time spent**:
+45 minutes. 
 
 ---
 
