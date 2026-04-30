@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Random;
-import java.util.concurrent.locks.ReentrantLock; // task 1
+import java.util.concurrent.Semaphore; // task 1
+import java.util.concurrent.locks.ReentrantLock; // task 3
 
 // ANSI Color Codes for enhanced terminal output
 class Colors {
@@ -41,8 +42,7 @@ class SharedResources {
     public static final ReentrantLock lock = new ReentrantLock();
     
     // TODO #2: Add a Semaphore to limit concurrent process execution
-    // Example: public static final Semaphore cpuSemaphore = new Semaphore(1);
-    
+    public static final Semaphore cpuSemaphore = new Semaphore(1);    
     // Method to increment context switch counter
     public static void incrementContextSwitch() {
         lock.lock();    // task 1
@@ -111,6 +111,8 @@ class Process implements Runnable {
         // This ensures only allowed number of processes run simultaneously
         
         try {
+           SharedResources.cpuSemaphore.acquire(); // task 3
+
             if (startTime == -1) {
                 startTime = System.currentTimeMillis();
             }
@@ -169,9 +171,12 @@ class Process implements Runnable {
             }
             System.out.println();
             
-        } finally {
+        }catch (InterruptedException e) {   // task 3
+        e.printStackTrace(); 
+        }
+         finally {
             // TODO #4: Release CPU semaphore here
-            // Always release in finally block to prevent deadlocks!
+            SharedResources.cpuSemaphore.release(); // task 3
         }
     }
     
