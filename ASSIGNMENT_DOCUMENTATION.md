@@ -67,17 +67,21 @@ I executed the simulation and carefully monitored the console output. I verified
 
 ---
 
-### Entry 3 - [Date, Time]
+### Entry 3 - [May 1, 2026, 12: 28 PM]
 **What I implemented**: 
+I completed the theoretical analysis (Parts 1-3) and reflection (Part 5) sections of the assignment. This involved explaining race conditions, comparing locks vs. semaphores, justifying my coarse-grained lock design, and providing real-world analogies for synchronization.
 
 **Challenges encountered**: 
+The main challenge was translating complex operating system concepts—like mutual exclusion, deadlocks, and lock granularity—into clear, concise written answers without relying entirely on technical jargon.
 
 **How I solved it**: 
+I focused on connecting the theory directly to the code I wrote. To explain things simply, I brainstormed everyday analogies, like comparing a ReentrantLock to a shared notebook in a locked room, and a Semaphore to a parking garage with limited spots.
 
 **Testing approach**: 
+I reviewed the lecture slides to ensure my definitions were accurate and cross-referenced my written explanations with the actual behavior and output logs of my Java simulation to guarantee they matched.
 
 **Time spent**: 
-
+2 houres.
 ---
 
 ### Entry 4 - [Date, Time]
