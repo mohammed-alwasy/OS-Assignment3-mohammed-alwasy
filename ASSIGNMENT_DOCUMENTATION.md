@@ -2,7 +2,7 @@
 
 **Student Name**: [Mohammed Baleigh Alwasy]  
 **Student ID**: [445052803]  
-**Date Submitted**: [Submission Date]
+**Date Submitted**: [May 2, 2026]
 
 ---
 
@@ -14,7 +14,7 @@
 > Set sharing to "Anyone with the link can view".
 > Test the link in incognito/private mode before submitting.
 
-**Video Link**: [Paste your personal Gmail Google Drive link here]
+**Video Link**: [https://drive.google.com/file/d/15An96Fn-c52A0ahwRGiJH5aihHTkW5lN/view?usp=sharing]
 
 **Video filename**: `[YourStudentID]_Assignment3_Synchronization.mp4`
 
@@ -337,15 +337,7 @@ It serializes the execution phase of the concurrent threads. Even though the sys
 
 **Testing procedure**: 
 ```bash
-# Compiling the Java program
-javac Main.java SharedResources.java Process.java
-
-# Running the program 5 times to check for consistency
-java Main
-java Main
-java Main
-java Main
-java Main
+** I run the program 5 times to check for consistency
 ```
 
 **Results**: 
@@ -453,30 +445,39 @@ On the other hand, a Semaphore is like managing a shared resource pool, such as 
 ## Part 6: GitHub Repository Information
 
 **Repository URL**: 
+https://github.com/mohammed-alwasy/OS-Assignment3-mohammed-alwasy
 
-**Number of commits**: 
+**Number of commits**: 10
 
 **Commit messages**: 
-1. 
-2. 
-3. 
-4. 
+1. set my student ID : 445052803
+2. completed task 1
+3. finished entry 1: about task 1 . 
+4. completed task 2 : Add ReentrantLock to protect execution log
+5. completed task 3: added a semaphore to limit concurrent process execution and ensured 
+   it is released properly in a finally block.
+6. finished entry 2 about task 3.
+7. Finished first three parts of ASSIGNMENT_DOCUMENTATION.md.
+8. finished ASSIGNMENT_DOCUMENTATION.md part (4-5).
+9. finished entry 3 : about ASSIGNMENT_DOCUMENTATION.md
 
 ---
 
 ## Summary
 
 **Total time spent on assignment**: 
+6 hours ,
 
 **Key takeaways**: 
-1. 
-2. 
-3. 
+1. Synchronization is strictly required to prevent data corruption in multithreaded programs.
+2. Coarse-grained locks are safer and easier to implement, but can reduce system performance under heavy load.
+3. Always use finally blocks to release locks and semaphores to prevent deadlocks if a thread crashes.
 
 **Most challenging aspect**: 
+Visualizing concurrent thread interleaving and understanding the exact root causes of the invisible race conditions.
 
 **What I'm most proud of**: 
-
+Successfully transforming an unstable, crashing program into a perfectly accurate and thread-safe simulation.
 ---
 
 **End of Documentation**
